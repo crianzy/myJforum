@@ -1,8 +1,6 @@
 package com.czy.jforum.config;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
 import java.util.Properties;
 
 import com.czy.jforum.util.VariableExpander;
@@ -64,5 +62,13 @@ public class SystemGlobal implements VariableStore{
 	public String getVariableValue(String key) {
 		String preExpention = systemGlobal.systemProperties.getProperty(key);
 		return expand.expandVariable(preExpention);
+	}
+
+	public static Object getApplicationPath() {
+		return getValue(ConfigKey.APP_PATH);
+	}
+
+	public static boolean getBoolValue(String field) {
+		return "true".equals(getValue(field));
 	}
 }

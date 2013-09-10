@@ -6,7 +6,7 @@
 	<display-name></display-name>
  	<servlet>
 		<servlet-name>jforum</servlet-name>
-		<servlet-class>com.czy.jforum.JForumBaseServlet</servlet-class>
+		<servlet-class>com.czy.jforum.JForum</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>jforum</servlet-name>
