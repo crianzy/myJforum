@@ -9,6 +9,11 @@ import org.apache.log4j.Logger;
 import com.czy.jforum.JForumExecutionContext;
 import com.czy.jforum.config.ConfigLoader;
 
+/**
+ * 根据传过来的 module name来 通过配置文件和自己的缓存，获取相对应的 Class Name
+ * @author chen9_000
+ *
+ */
 public class ModulesRepository {
 	private static final Logger logger = Logger
 			.getLogger(ModulesRepository.class);

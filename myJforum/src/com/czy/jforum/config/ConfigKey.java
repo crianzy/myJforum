@@ -15,7 +15,7 @@ public class ConfigKey {
 	public static final String ENCODING = "encoding";
 	public static final String DEFAULT_CONTAINER_ENCODING = "default.container.encoding";
 	public static final String CACHE_IMPLEMENTATION = "cache.engine.implementation";
-	
+	public static final String QUARTZ_CONFIG = "quartz.config";
 	
 	public static final String PROXIED_CONTEXT_PATH = "proxied.context.path";
 	public static final String REDIRECT_ABSOLUTE_PATHS = "redirect.absolute.paths";
@@ -30,4 +30,8 @@ public class ConfigKey {
 	public static final String FORUM_PAGE_METATAG_KEYWORDS = "forum.page.metatag.keywords";
 	public static final String FORUM_PAGE_METATAG_DESCRIPTION = "forum.page.metatag.description";
 	
+	//数据库相关
+	public static final String SQL_QUERIES_GENERIC = "sql.queries.generic";
+	public static final String SQL_QUERIES_DRIVER = "sql.queries.driver";
+	public static final String DAO_DRIVER = "dao.driver";
 }

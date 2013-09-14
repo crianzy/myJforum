@@ -6,18 +6,33 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Properties;
 
+import org.apache.log4j.Logger;
+
 import com.czy.jforum.UrlPatternCollection;
-import com.czy.jforum.cache.CacheEngine;
-import com.czy.jforum.cache.Cacheable;
-import com.czy.jforum.exceptions.CacheEngineStartupException;
+import com.czy.jforum.exception.ForumException;
 
+/**
+ * 配置文件读取器
+ * 
+ * @author chen9_000
+ * 
+ */
 public class ConfigLoader {
+	public static Logger logger = Logger.getLogger(ConfigLoader.class);
 
+	/**
+	 * 读取住全局配置文件
+	 * 
+	 * @param appPath
+	 */
 	public static void startSystemGlobal(String appPath) {
 		SystemGlobal.init(appPath, appPath
 				+ "/WEB-INF/config/SystemGlobal.properties");
 	}
 
+	/**
+	 * 读取 url类型 module action 参数 如何规划分配的配置文件
+	 */
 	public static void loadUrlPatterns() {
 		FileInputStream fis = null;
 		try {
@@ -62,6 +77,18 @@ public class ConfigLoader {
 				} catch (Exception e) {
 				}
 			}
+		}
+	}
+
+	public static void loadDaoImplementation() {
+		String driver = SystemGlobal.getValue(ConfigKey.DAO_DRIVER);
+		logger.info("Loading JDBC driver " + driver);
+		try {
+			Class c = Class.forName(driver);
+			//DataAccessDriver d = (DataAccessDriver) c.newInstance();
+			//DataAccessDriver.init(d);
+		} catch (Exception e) {
+			throw new ForumException(e);
 		}
 	}
 
