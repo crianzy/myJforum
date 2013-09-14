@@ -9,7 +9,8 @@ import org.apache.log4j.Logger;
 import com.czy.jforum.config.ConfigKey;
 import com.czy.jforum.config.ConfigLoader;
 import com.czy.jforum.config.SystemGlobal;
-import com.sun.org.apache.xml.internal.security.utils.I18n;
+import com.czy.jforum.repository.ModulesRepository;
+import com.czy.jforum.repository.Tpl;
 
 public class JForumBaseServlet extends HttpServlet {
 
@@ -21,15 +22,19 @@ public class JForumBaseServlet extends HttpServlet {
 		String appPath = config.getServletContext().getRealPath("");
 		ConfigLoader.startSystemGlobal(appPath);
 		SystemGlobal.getValue(ConfigKey.TEST);
+
+		ModulesRepository.init(SystemGlobal.getValue(ConfigKey.CONFIG_DIR));
 		this.loadConfigStuff();
+
 	}
 
 	protected void loadConfigStuff() {
 		ConfigLoader.loadUrlPatterns();
-		//I18n.load();
-		//Tpl.load(SystemGlobals.getValue(ConfigKeys.TEMPLATES_MAPPING));
+		Tpl.load(SystemGlobal.getValue(ConfigKey.TEMPLATES_MAPPING));
+		// I18n.load();
+		// Tpl.load(SystemGlobals.getValue(ConfigKeys.TEMPLATES_MAPPING));
 		// BB Code
-		//BBCodeRepository.setBBCollection(new BBCodeHandler().parse());
+		// BBCodeRepository.setBBCollection(new BBCodeHandler().parse());
 	}
 	// @Override
 	// protected void service(HttpServletRequest req, HttpServletResponse res)

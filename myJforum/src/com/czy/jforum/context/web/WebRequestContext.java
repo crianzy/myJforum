@@ -86,7 +86,7 @@ public class WebRequestContext extends HttpServletRequestWrapper implements
 			if (isPost) {
 				containerEncoding = encoding;
 			}
-
+			//获取参数放入request 中
 			for (Enumeration e = superRequest.getParameterNames(); e
 					.hasMoreElements();) {
 				String name = (String) e.nextElement();
@@ -109,7 +109,7 @@ public class WebRequestContext extends HttpServletRequestWrapper implements
 
 			if (this.getModule() == null && this.getAction() == null) {
 				int index = requestUri.indexOf('?');
-
+				
 				if (index > -1) {
 					requestUri = requestUri.substring(0, index);
 				}
@@ -120,6 +120,7 @@ public class WebRequestContext extends HttpServletRequestWrapper implements
 	}
 
 	/**
+	 * 解析url 将action module 放入request 中
 	 * @param requestUri
 	 * @param servletExtension
 	 */
