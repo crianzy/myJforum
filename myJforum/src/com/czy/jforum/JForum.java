@@ -3,17 +3,12 @@ package com.czy.jforum;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
-import java.io.UnsupportedEncodingException;
 import java.io.Writer;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import net.jforum.ForumStartup;
-
-import org.apache.log4j.Logger;
 
 import com.czy.jforum.config.ConfigKey;
 import com.czy.jforum.config.SystemGlobal;
